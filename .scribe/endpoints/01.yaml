@@ -1,0 +1,298 @@
+name: UserManagement
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/create_user
+    metadata:
+      groupName: UserManagement
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      first_name:
+        name: first_name
+        description: 'The first name of the user.'
+        required: true
+        example: John
+        type: string
+        custom: []
+      middle_name:
+        name: middle_name
+        description: 'The middle name of the user.'
+        required: true
+        example: Doe
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: 'The last name of the user.'
+        required: true
+        example: Smith
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'The email of the user.'
+        required: true
+        example: smith@gmail.com
+        type: string
+        custom: []
+      username:
+        name: username
+        description: 'The username of the user.'
+        required: true
+        example: jsmith
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'The password of the user.'
+        required: true
+        example: '12345678'
+        type: string
+        custom: []
+      attachments:
+        name: attachments
+        description: 'The image of the user that will be trained base64.'
+        required: true
+        example:
+          - exercitationem
+        type: 'string[]'
+        custom: []
+      'attachments.*':
+        name: 'attachments.*'
+        description: 'The image of the user that will be trained base64.'
+        required: true
+        example: ratione
+        type: string
+        custom: []
+    cleanBodyParameters:
+      first_name: John
+      middle_name: Doe
+      last_name: Smith
+      email: smith@gmail.com
+      username: jsmith
+      password: '12345678'
+      attachments:
+        - exercitationem
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+                 "first_name":string,
+                 "middle_name":string,
+                 "last_name":string,
+                 "email":string,
+                 "username":string,
+                 "password":string,
+                 "attachments":[] //base64
+             }
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/users
+    metadata:
+      groupName: UserManagement
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "code": int ,
+          "success": boolean,
+          "message": string,
+          "result": [
+             {
+                 "id": int,
+                 "first_name": string,
+                 "last_name": string,
+                 "middle_name": string,
+                 "username": string,
+                 "email": string,
+                 "created_at": string,
+                 "updated_at": string,
+                 "attachments": [
+                    {
+                     "id": int,
+                     "path": string,
+                     "type": string,
+                     "model_name": string,
+                     "target_id": int,
+                     "created_at": string,
+                     "updated_at": string
+                    }
+                ]
+             }
+            ]
+          }
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/users
+    metadata:
+      groupName: UserManagement
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      id:
+        name: id
+        description: 'The id of the user.'
+        required: true
+        example: '1'
+        type: string
+        custom: []
+    cleanQueryParameters:
+      id: '1'
+    bodyParameters:
+      id:
+        name: id
+        description: ''
+        required: true
+        example: sint
+        type: string
+        custom: []
+      first_name:
+        name: first_name
+        description: 'The first name of the user.'
+        required: true
+        example: John
+        type: string
+        custom: []
+      middle_name:
+        name: middle_name
+        description: 'The middle name of the user.'
+        required: true
+        example: Doe
+        type: string
+        custom: []
+      last_name:
+        name: last_name
+        description: 'The last name of the user.'
+        required: true
+        example: Smith
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'The email of the user.'
+        required: true
+        example: ibra@gmail.com
+        type: string
+        custom: []
+      username:
+        name: username
+        description: 'The username of the user.'
+        required: true
+        example: user_smith
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'The new password of the user.'
+        required: false
+        example: '12345678'
+        type: string
+        custom: []
+      attachments:
+        name: attachments
+        description: 'The id of image to be sync.'
+        required: true
+        example:
+          - et
+        type: 'string[]'
+        custom: []
+      new_attachments:
+        name: new_attachments
+        description: ''
+        required: false
+        example:
+          - accusantium
+        type: 'string[]'
+        custom: []
+      'attachments.*':
+        name: 'attachments.*'
+        description: 'The id of image to be sync.'
+        required: true
+        example: 20
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      id: sint
+      first_name: John
+      middle_name: Doe
+      last_name: Smith
+      email: ibra@gmail.com
+      username: user_smith
+      password: '12345678'
+      attachments:
+        - et
+      new_attachments:
+        - accusantium
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

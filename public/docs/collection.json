@@ -1,0 +1,391 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/192.168.50.250:8000"
+        }
+    ],
+    "info": {
+        "name": "task sjc",
+        "_postman_id": "ac6d8fc2-f072-463b-aaee-2a3dc30d1f6f",
+        "description": "just a task",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Attendance Management",
+            "description": "",
+            "item": [
+                {
+                    "name": "get attendance of a employee according to token.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/user_attendances",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/user_attendances"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n {\n   \"id\": int,\n   \"check_in\": string,\n   \"check_out\": string,\n   \"sys_in\": string,\n   \"sys_out\": string,\n   \"date\": string,\n   \"user_id\": int,\n   \"delay\": int,\n   \"sus\": boolean,\n   \"ip\": string,\n   \"attachment_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string,\n   \"attachment_in\": {\n   \"id\": int,\n   \"path\": string,\n   \"type\": string,\n    \"model_name\": string,\n   \"target_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string\n },\n   \"attachment_out\": {\n   \"id\": int,\n   \"path\": string,\n   \"type\": string,\n    \"model_name\": string,\n   \"target_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string\n },\n \"user\": {\n  \"id\": int,\n  \"first_name\": string,\n  \"last_name\": string,\n  \"middle_name\": string,\n  \"username\": string,\n  \"email\": string,\n  \"email_verified_at\": string,\n  \"created_at\": string,\n  \"updated_at\": string\n  }\n}",
+                            "name": "success"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"code\": 401,\n\"success\": false,\n\"message\": \"\u064a\u062c\u0628 \u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u062f\u062e\u0648\u0644\"\n}",
+                            "name": "unauthorized"
+                        }
+                    ]
+                },
+                {
+                    "name": "get attendance of a employee according to token.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/attendances",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/attendances"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n {\n   \"id\": int,\n   \"check_in\": string,\n   \"check_out\": string,\n   \"sys_in\": string,\n   \"sys_out\": string,\n   \"date\": string,\n   \"user_id\": int,\n   \"delay\": int,\n   \"sus\": boolean,\n   \"ip\": string,\n   \"attachment_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string,\n   \"attachment_in\": {\n   \"id\": int,\n   \"path\": string,\n   \"type\": string,\n    \"model_name\": string,\n   \"target_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string\n },\n   \"attachment_out\": {\n   \"id\": int,\n   \"path\": string,\n   \"type\": string,\n    \"model_name\": string,\n   \"target_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string\n },\n \"user\": {\n  \"id\": int,\n  \"first_name\": string,\n  \"last_name\": string,\n  \"middle_name\": string,\n  \"username\": string,\n  \"email\": string,\n  \"email_verified_at\": string,\n  \"created_at\": string,\n  \"updated_at\": string\n  }\n}",
+                            "name": "success"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"code\": 401,\n\"success\": false,\n\"message\": \"\u064a\u062c\u0628 \u062a\u0633\u062c\u064a\u0644 \u0627\u0644\u062f\u062e\u0648\u0644\"\n}",
+                            "name": "unauthorized"
+                        }
+                    ]
+                },
+                {
+                    "name": "check in \/ out according time",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/check",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/check"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"ip\":\"culpa\",\"attachment\":\"ipsam\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Auth",
+            "description": "",
+            "item": [
+                {
+                    "name": "POST api\/login",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/login",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/login"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"username\":\"admin\",\"password\":\"admin\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n   {\n       \"id\": int,\n       \"first_name\": string,\n       \"last_name\": string,\n       \"middle_name\": string,\n       \"username\": string,\n       \"email\": string,\n       \"created_at\": string,\n       \"updated_at\": string,\n       \"attachments\": array\n   }\n],\n\"token\": string\n}",
+                            "name": "success"
+                        },
+                        {
+                            "header": [],
+                            "code": 401,
+                            "body": "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n}",
+                            "name": "when invalid credentials"
+                        },
+                        {
+                            "header": [],
+                            "code": 422,
+                            "body": "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"errors\": array\n}",
+                            "name": "when validation fails"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Settings",
+            "description": "",
+            "item": [
+                {
+                    "name": "GET api\/settings",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/settings",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/settings"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n   {\n       \"id\": int,\n       \"key\": string,\n       \"value\": string,\n       \"created_at\": string,\n       \"updated_at\": string\n   }\n ]\n}",
+                            "name": "success"
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/settings",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/settings",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/settings"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":1,\"value\":\"2023-05-17 07:55:00\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n   {\n       \"id\": int,\n       \"key\": string,\n       \"value\": string,\n       \"created_at\": string,\n       \"updated_at\": string\n   }\n ]\n}",
+                            "name": "success"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "UserManagement",
+            "description": "",
+            "item": [
+                {
+                    "name": "POST api\/create_user",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/create_user",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/create_user"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"John\",\"middle_name\":\"Doe\",\"last_name\":\"Smith\",\"email\":\"smith@gmail.com\",\"username\":\"jsmith\",\"password\":\"12345678\",\"attachments\":[\"exercitationem\"]}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n       \"first_name\":string,\n       \"middle_name\":string,\n       \"last_name\":string,\n       \"email\":string,\n       \"username\":string,\n       \"password\":string,\n       \"attachments\":[] \/\/base64\n   }",
+                            "name": "success"
+                        }
+                    ]
+                },
+                {
+                    "name": "GET api\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/users"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "{\n\"code\": int ,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n   {\n       \"id\": int,\n       \"first_name\": string,\n       \"last_name\": string,\n       \"middle_name\": string,\n       \"username\": string,\n       \"email\": string,\n       \"created_at\": string,\n       \"updated_at\": string,\n       \"attachments\": [\n          {\n           \"id\": int,\n           \"path\": string,\n           \"type\": string,\n           \"model_name\": string,\n           \"target_id\": int,\n           \"created_at\": string,\n           \"updated_at\": string\n          }\n      ]\n   }\n  ]\n}",
+                            "name": "success"
+                        }
+                    ]
+                },
+                {
+                    "name": "PUT api\/users",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/users",
+                            "query": [
+                                {
+                                    "key": "id",
+                                    "value": "1",
+                                    "description": "The id of the user.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "{{baseUrl}}\/api\/users?id=1"
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"id\":\"sint\",\"first_name\":\"John\",\"middle_name\":\"Doe\",\"last_name\":\"Smith\",\"email\":\"ibra@gmail.com\",\"username\":\"user_smith\",\"password\":\"12345678\",\"attachments\":[\"et\"],\"new_attachments\":[\"accusantium\"]}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "Authorization",
+                "value": null,
+                "type": "string"
+            }
+        ]
+    }
+}

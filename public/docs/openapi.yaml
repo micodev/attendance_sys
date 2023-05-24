@@ -1,0 +1,407 @@
+openapi: 3.0.3
+info:
+  title: 'task sjc'
+  description: 'just a task'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://192.168.50.250:8000'
+paths:
+  /api/user_attendances:
+    get:
+      summary: 'get attendance of a employee according to token.'
+      operationId: getAttendanceOfAEmployeeAccordingToToken
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n {\n   \"id\": int,\n   \"check_in\": string,\n   \"check_out\": string,\n   \"sys_in\": string,\n   \"sys_out\": string,\n   \"date\": string,\n   \"user_id\": int,\n   \"delay\": int,\n   \"sus\": boolean,\n   \"ip\": string,\n   \"attachment_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string,\n   \"attachment_in\": {\n   \"id\": int,\n   \"path\": string,\n   \"type\": string,\n    \"model_name\": string,\n   \"target_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string\n },\n   \"attachment_out\": {\n   \"id\": int,\n   \"path\": string,\n   \"type\": string,\n    \"model_name\": string,\n   \"target_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string\n },\n \"user\": {\n  \"id\": int,\n  \"first_name\": string,\n  \"last_name\": string,\n  \"middle_name\": string,\n  \"username\": string,\n  \"email\": string,\n  \"email_verified_at\": string,\n  \"created_at\": string,\n  \"updated_at\": string\n  }\n}"
+        401:
+          description: unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 401
+                  success: false
+                  message: 'يجب تسجيل الدخول'
+                properties:
+                  code:
+                    type: integer
+                    example: 401
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'يجب تسجيل الدخول'
+      tags:
+        - 'Attendance Management'
+  /api/attendances:
+    get:
+      summary: 'get attendance of a employee according to token.'
+      operationId: getAttendanceOfAEmployeeAccordingToToken
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses:
+        200:
+          description: success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n {\n   \"id\": int,\n   \"check_in\": string,\n   \"check_out\": string,\n   \"sys_in\": string,\n   \"sys_out\": string,\n   \"date\": string,\n   \"user_id\": int,\n   \"delay\": int,\n   \"sus\": boolean,\n   \"ip\": string,\n   \"attachment_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string,\n   \"attachment_in\": {\n   \"id\": int,\n   \"path\": string,\n   \"type\": string,\n    \"model_name\": string,\n   \"target_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string\n },\n   \"attachment_out\": {\n   \"id\": int,\n   \"path\": string,\n   \"type\": string,\n    \"model_name\": string,\n   \"target_id\": int,\n   \"created_at\": string,\n   \"updated_at\": string\n },\n \"user\": {\n  \"id\": int,\n  \"first_name\": string,\n  \"last_name\": string,\n  \"middle_name\": string,\n  \"username\": string,\n  \"email\": string,\n  \"email_verified_at\": string,\n  \"created_at\": string,\n  \"updated_at\": string\n  }\n}"
+        401:
+          description: unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  code: 401
+                  success: false
+                  message: 'يجب تسجيل الدخول'
+                properties:
+                  code:
+                    type: integer
+                    example: 401
+                  success:
+                    type: boolean
+                    example: false
+                  message:
+                    type: string
+                    example: 'يجب تسجيل الدخول'
+      tags:
+        - 'Attendance Management'
+  /api/check:
+    post:
+      summary: 'check in / out according time'
+      operationId: checkInOutAccordingTime
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Authorization
+          description: ''
+          example: 'Bearer {YOUR_AUTH_KEY}'
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - 'Attendance Management'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ip:
+                  type: string
+                  description: 'ip address of the user.'
+                  example: culpa
+                attachment:
+                  type: string
+                  description: 'attachment of the user.'
+                  example: ipsam
+              required:
+                - ip
+                - attachment
+  /api/login:
+    post:
+      summary: ''
+      operationId: postApiLogin
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n   {\n       \"id\": int,\n       \"first_name\": string,\n       \"last_name\": string,\n       \"middle_name\": string,\n       \"username\": string,\n       \"email\": string,\n       \"created_at\": string,\n       \"updated_at\": string,\n       \"attachments\": array\n   }\n],\n\"token\": string\n}"
+        401:
+          description: 'when invalid credentials'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n}"
+        422:
+          description: 'when validation fails'
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"errors\": array\n}"
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: 'The username of the user.'
+                  example: admin
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: admin
+              required:
+                - username
+                - password
+      security: []
+  /api/settings:
+    get:
+      summary: ''
+      operationId: getApiSettings
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n   {\n       \"id\": int,\n       \"key\": string,\n       \"value\": string,\n       \"created_at\": string,\n       \"updated_at\": string\n   }\n ]\n}"
+      tags:
+        - Settings
+      security: []
+    put:
+      summary: ''
+      operationId: putApiSettings
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"code\": int,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n   {\n       \"id\": int,\n       \"key\": string,\n       \"value\": string,\n       \"created_at\": string,\n       \"updated_at\": string\n   }\n ]\n}"
+      tags:
+        - Settings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: 'The id of the settings.'
+                  example: 1
+                value:
+                  type: string
+                  description: 'The value of the settings.'
+                  example: '2023-05-17 07:55:00'
+              required:
+                - id
+                - value
+      security: []
+  /api/create_user:
+    post:
+      summary: ''
+      operationId: postApiCreate_user
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n       \"first_name\":string,\n       \"middle_name\":string,\n       \"last_name\":string,\n       \"email\":string,\n       \"username\":string,\n       \"password\":string,\n       \"attachments\":[] //base64\n   }"
+      tags:
+        - UserManagement
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'The first name of the user.'
+                  example: John
+                middle_name:
+                  type: string
+                  description: 'The middle name of the user.'
+                  example: Doe
+                last_name:
+                  type: string
+                  description: 'The last name of the user.'
+                  example: Smith
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: smith@gmail.com
+                username:
+                  type: string
+                  description: 'The username of the user.'
+                  example: jsmith
+                password:
+                  type: string
+                  description: 'The password of the user.'
+                  example: '12345678'
+                attachments:
+                  type: array
+                  description: 'The image of the user that will be trained base64.'
+                  example:
+                    - exercitationem
+                  items:
+                    type: string
+              required:
+                - first_name
+                - middle_name
+                - last_name
+                - email
+                - username
+                - password
+                - attachments
+      security: []
+  /api/users:
+    get:
+      summary: ''
+      operationId: getApiUsers
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: success
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "{\n\"code\": int ,\n\"success\": boolean,\n\"message\": string,\n\"result\": [\n   {\n       \"id\": int,\n       \"first_name\": string,\n       \"last_name\": string,\n       \"middle_name\": string,\n       \"username\": string,\n       \"email\": string,\n       \"created_at\": string,\n       \"updated_at\": string,\n       \"attachments\": [\n          {\n           \"id\": int,\n           \"path\": string,\n           \"type\": string,\n           \"model_name\": string,\n           \"target_id\": int,\n           \"created_at\": string,\n           \"updated_at\": string\n          }\n      ]\n   }\n  ]\n}"
+      tags:
+        - UserManagement
+      security: []
+    put:
+      summary: ''
+      operationId: putApiUsers
+      description: ''
+      parameters:
+        -
+          in: query
+          name: id
+          description: 'The id of the user.'
+          example: '1'
+          required: true
+          schema:
+            type: string
+            description: 'The id of the user.'
+            example: '1'
+      responses: {  }
+      tags:
+        - UserManagement
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: ''
+                  example: sint
+                first_name:
+                  type: string
+                  description: 'The first name of the user.'
+                  example: John
+                middle_name:
+                  type: string
+                  description: 'The middle name of the user.'
+                  example: Doe
+                last_name:
+                  type: string
+                  description: 'The last name of the user.'
+                  example: Smith
+                email:
+                  type: string
+                  description: 'The email of the user.'
+                  example: ibra@gmail.com
+                username:
+                  type: string
+                  description: 'The username of the user.'
+                  example: user_smith
+                password:
+                  type: string
+                  description: 'The new password of the user.'
+                  example: '12345678'
+                attachments:
+                  type: array
+                  description: 'The id of image to be sync.'
+                  example:
+                    - et
+                  items:
+                    type: string
+                new_attachments:
+                  type: array
+                  description: ''
+                  example:
+                    - accusantium
+                  items:
+                    type: string
+              required:
+                - id
+                - first_name
+                - middle_name
+                - last_name
+                - email
+                - username
+                - attachments
+      security: []
+tags:
+  -
+    name: 'Attendance Management'
+    description: ''
+  -
+    name: Auth
+    description: ''
+  -
+    name: Settings
+    description: ''
+  -
+    name: UserManagement
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: ''
+security:
+  -
+    default: []

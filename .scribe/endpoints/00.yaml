@@ -1,0 +1,97 @@
+name: Auth
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: Auth
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      username:
+        name: username
+        description: 'The username of the user.'
+        required: true
+        example: admin
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'The password of the user.'
+        required: true
+        example: admin
+        type: string
+        custom: []
+    cleanBodyParameters:
+      username: admin
+      password: admin
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "code": int,
+          "success": boolean,
+          "message": string,
+          "result": [
+             {
+                 "id": int,
+                 "first_name": string,
+                 "last_name": string,
+                 "middle_name": string,
+                 "username": string,
+                 "email": string,
+                 "created_at": string,
+                 "updated_at": string,
+                 "attachments": array
+             }
+          ],
+          "token": string
+          }
+        headers: []
+        description: success
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+          "code": int,
+          "success": boolean,
+          "message": string,
+          }
+        headers: []
+        description: 'when invalid credentials'
+        custom: []
+      -
+        status: 422
+        content: |-
+          {
+          "code": int,
+          "success": boolean,
+          "message": string,
+          "errors": array
+          }
+        headers: []
+        description: 'when validation fails'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

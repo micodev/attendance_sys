@@ -1,0 +1,119 @@
+name: Settings
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/settings
+    metadata:
+      groupName: Settings
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "code": int,
+          "success": boolean,
+          "message": string,
+          "result": [
+             {
+                 "id": int,
+                 "key": string,
+                 "value": string,
+                 "created_at": string,
+                 "updated_at": string
+             }
+           ]
+          }
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/settings
+    metadata:
+      groupName: Settings
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The id of the settings.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+      value:
+        name: value
+        description: 'The value of the settings.'
+        required: true
+        example: '2023-05-17 07:55:00'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      id: 1
+      value: '2023-05-17 07:55:00'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |-
+          {
+          "code": int,
+          "success": boolean,
+          "message": string,
+          "result": [
+             {
+                 "id": int,
+                 "key": string,
+                 "value": string,
+                 "created_at": string,
+                 "updated_at": string
+             }
+           ]
+          }
+        headers: []
+        description: success
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
